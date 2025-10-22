@@ -1,100 +1,61 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Snake Game</title>
-  <style>
-    body {
-      margin: 0;
-      background: #0a0a0a;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    canvas {
-      background: #111;
-      border: 3px solid #00ff99;
-      border-radius: 10px;
-      image-rendering: pixelated;
-    }
-  </style>
-</head>
-<body>
-  <canvas id="game" width="400" height="400"></canvas>
-  <script>
-    const canvas = document.getElementById('game');
-    const ctx = canvas.getContext('2d');
+<h2 align="center">👋 Olá! Me chamo <strong>Luis Mario</strong>, sou do Paraná e estou desenvolvendo minhas habilidades em <strong>desenvolvimento web</strong>.</h2>
 
-    const box = 20;
-    let snake = [{ x: 9 * box, y: 10 * box }];
-    let direction = 'RIGHT';
-    let food = {
-      x: Math.floor(Math.random() * 19 + 1) * box,
-      y: Math.floor(Math.random() * 19 + 1) * box
-    };
-    let score = 0;
+<br clear="both">
 
-    document.addEventListener('keydown', e => {
-      if (e.key === 'ArrowUp' && direction !== 'DOWN') direction = 'UP';
-      else if (e.key === 'ArrowDown' && direction !== 'UP') direction = 'DOWN';
-      else if (e.key === 'ArrowLeft' && direction !== 'RIGHT') direction = 'LEFT';
-      else if (e.key === 'ArrowRight' && direction !== 'LEFT') direction = 'RIGHT';
-    });
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=luis-mario-trindade&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false" height="150" alt="Gráfico das linguagens mais usadas" />
+  <img src="https://streak-stats.demolab.com?user=luis-mario-trindade&locale=en&mode=daily&theme=dracula&hide_border=false&border_radius=5" height="150" alt="Gráfico de streak de commits" />
+</div>
 
-    function draw() {
-      ctx.clearRect(0, 0, 400, 400);
+<br clear="both">
 
-      // desenha comida
-      ctx.fillStyle = '#ff3366';
-      ctx.fillRect(food.x, food.y, box, box);
+<div align="center">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="40" alt="Logo HTML5" />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" alt="Logo CSS3" />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="Logo JavaScript" />
+</div>
 
-      // desenha cobra
-      for (let i = 0; i < snake.length; i++) {
-        ctx.fillStyle = i === 0 ? '#00ff99' : '#00cc77';
-        ctx.fillRect(snake[i].x, snake[i].y, box - 1, box - 1);
-      }
+<br clear="both">
 
-      // posição inicial
-      let snakeX = snake[0].x;
-      let snakeY = snake[0].y;
+<div align="center">
+  <a href="mailto:luismariol.trindade@gmail.com" target="_blank">
+    <img src="https://img.shields.io/static/v1?message=Gmail&logo=gmail&label=&color=D14836&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="Gmail logo" />
+  </a>
+  <a href="https://www.linkedin.com/in/luismario-l-trindade" target="_blank">
+    <img src="https://img.shields.io/static/v1?message=LinkedIn&logo=linkedin&label=&color=0077B5&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="LinkedIn logo" />
+  </a>
+  <a href="https://wa.me/5543991074612" target="_blank">
+    <img src="https://img.shields.io/static/v1?message=Whatsapp&logo=whatsapp&label=&color=25D366&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="WhatsApp logo" />
+  </a>
+  <a href="https://t.me/seu_usuario" target="_blank">
+    <img src="https://img.shields.io/static/v1?message=Telegram&logo=telegram&label=&color=2CA5E0&logoColor=white&labelColor=&style=for-the-badge" height="35" alt="Telegram logo" />
+  </a>
+</div>
 
-      if (direction === 'LEFT') snakeX -= box;
-      if (direction === 'UP') snakeY -= box;
-      if (direction === 'RIGHT') snakeX += box;
-      if (direction === 'DOWN') snakeY += box;
+<br clear="both">
 
-      // se comer a comida
-      if (snakeX === food.x && snakeY === food.y) {
-        score++;
-        food = {
-          x: Math.floor(Math.random() * 19 + 1) * box,
-          y: Math.floor(Math.random() * 19 + 1) * box
-        };
-      } else {
-        snake.pop();
-      }
+<div align="center">
+  <img height="180" src="https://i.gifer.com/bfR.gif" alt="Animação de desenvolvedor digitando" />
+</div>
 
-      let newHead = { x: snakeX, y: snakeY };
+<br clear="both">
 
-      // colisão
-      if (
-        snakeX < 0 ||
-        snakeY < 0 ||
-        snakeX >= canvas.width ||
-        snakeY >= canvas.height ||
-        snake.some(seg => seg.x === newHead.x && seg.y === newHead.y)
-      ) {
-        clearInterval(game);
-        alert(`Game Over! Pontuação: ${score}`);
-      }
+<!-- 🐍 Snake animation (certifique-se de ter o GitHub Actions configurado para gerar o arquivo snake.svg) -->
+<p align="center">
+  <img src="https://raw.githubusercontent.com/luis-mario-trindade/luis-mario-trindade/output/github-contribution-grid-snake.svg" alt="Animação Snake" />
+</p>
 
-      snake.unshift(newHead);
-    }
+<br clear="both">
 
-    const game = setInterval(draw, 100);
-  </script>
-</body>
-</html>
+<div align="center">
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=luis-mario-trindade.luis-mario-trindade" alt="Contador de visitantes" />
+</div>
+
+<div>
+  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=100&section=footer&fontColor=FFFFFF&color=random" alt="Rodapé colorido animado" />
+</div>
+
+> 🧠 Feito com ❤️ usando [GitHub Readme Stats](https://github.com/anuraghazra/github-readme-stats), [Devicon](https://devicon.dev/) e [Shields.io](https://shields.io/).
 
