@@ -42,11 +42,6 @@
 
 <br clear="both">
 
-<!-- 🐍 Snake animation (certifique-se de ter o GitHub Actions configurado para gerar o arquivo snake.svg) -->
-<p align="center">
-  <img src="https://raw.githubusercontent.com/luis-mario-trindade/luis-mario-trindade/output/github-contribution-grid-snake.svg" alt="Animação Snake" />
-</p>
-
 <br clear="both">
 
 <div align="center">
